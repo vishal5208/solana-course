@@ -12,6 +12,8 @@ import {
  const suppliedToPubkey = process.env.AnotherPublicKey
 
  const senderKeypair = getKeypairFromEnvironment("SECRET_KEY")
+ const reciverKeyPair = getKeypairFromEnvironment("SECRET_KEY_2")
+
  const toPubkey = new PublicKey(suppliedToPubkey)
 
  const connection = new Connection(clusterApiUrl('devnet'))
@@ -31,12 +33,19 @@ import {
     lamports : LAPORTS_TO_SEND
  })
 
+ const sendSolInstruction_2 = SystemProgram.transfer({
+    fromPubkey : reciverKeyPair.publicKey,
+    toPubkey : senderKeypair.publicKey,
+    lamports : LAPORTS_TO_SEND
+ })
+
  transaction.add(sendSolInstruction)
+ transaction.add(sendSolInstruction_2)
 
  const signature = await sendAndConfirmTransaction(
     connection,  // connection
     transaction,  // transaction
-    [senderKeypair] // array of accounts, first will pay for the tx
+    [senderKeypair, reciverKeyPair] // array of accounts, first will pay for the tx
  )
 
  console.log(

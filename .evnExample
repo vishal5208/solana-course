@@ -1,0 +1,3 @@
+SECRET_KEY = "[11,22 ....]"
+SECRET_KEY_2 = "[11,22 ....]"
+AnotherPublicKey = "GfVG4jiFRrAh9Dnhn1vdqHazHH6tD9fr9ZMfnThaHsi4"
