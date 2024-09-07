@@ -16,12 +16,15 @@ console.log(`Balance of the account at ${address} is ${balance} lamports (${bala
 
 
 
-// lab
+// lab -> https://faucet.solana.com/
 const keypair = getKeypairFromEnvironment("SECRET_KEY")
-const myAddress = new PublicKey(keypair.publicKey)
-const balanceOfMyAccount = await connection.getBalance(myAddress)
-console.log(`Balance of my account at ${myAddress} is ${balanceOfMyAccount} lamports (${balanceOfMyAccount/LAMPORTS_PER_SOL} SOL)`)
-
+try {
+    const myAddress = new PublicKey(keypair.publicKey)
+    const balanceOfMyAccount = await connection.getBalance(myAddress)
+    console.log(`Balance of my account at ${myAddress} is ${balanceOfMyAccount} lamports (${balanceOfMyAccount/LAMPORTS_PER_SOL} SOL)`)
+} catch(e) {
+    console.log("Error : ", e)
+}
 
 
 
