@@ -1,5 +1,5 @@
 {
-  "name": "generate-keypair",
+  "name": "learn-solana",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,10 +10,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@solana-developers/helpers": "^2.5.4",
-    "@solana-developers/node-helpers": "^1.2.2",
     "@solana/web3.js": "^1.95.3",
     "esrun": "^3.2.26",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "@solana-developers/node-helpers": "^1.2.2",
+    "@solana-developers/helpers": "^2.5.4"
   }
 }
